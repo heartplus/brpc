@@ -318,7 +318,7 @@ inline void RedisReply::Swap(RedisReply& other) {
     std::swap(_length, other._length);
     std::swap(_data.padding[0], other._data.padding[0]);
     std::swap(_data.padding[1], other._data.padding[1]);
-    std::swap(_arena, other._arena);
+    // _arena MUST NOT be swaped as it aways point to RedisResponse._arena 
 }
 
 inline void RedisReply::CopyFromSameArena(const RedisReply& other) {
